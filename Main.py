@@ -9,30 +9,31 @@ from All_Merge import *
 # sub_table_file_list=[]
 # for line in sys.stdin:
 #     sub_table_file_list.extend(line.split())
-main_table_file=r'G:\计算机设计大赛\测试文件\模板(母表).xlsx'
-key=2
-sub_table_file_list=[
-r'G:\计算机设计大赛\测试文件\子表1_B.xlsx',
-r'G:\计算机设计大赛\测试文件\子表2_软二CD.xlsx',
-r'G:\计算机设计大赛\测试文件\子表3_软一CD.xlsx',
-r'G:\计算机设计大赛\测试文件\子表4_软一2月A.xlsx',
-r'G:\计算机设计大赛\测试文件\子表5_软一3月A .xlsx',
-r'G:\计算机设计大赛\测试文件\子表6_软二2月A .xlsx',
-r'G:\计算机设计大赛\测试文件\子表7_软二3月A.xlsx']
-need_add=(4,)
+# main_table_file=r'G:\计算机设计大赛\测试文件\模板(母表).xlsx'
+# # key=2
+# # sub_table_file_list=[
+# # r'G:\计算机设计大赛\测试文件\子表1_B.xlsx',
+# # r'G:\计算机设计大赛\测试文件\子表2_软二CD.xlsx',
+# # r'G:\计算机设计大赛\测试文件\子表3_软一CD.xlsx',
+# # r'G:\计算机设计大赛\测试文件\子表4_软一2月A.xlsx',
+# # r'G:\计算机设计大赛\测试文件\子表5_软一3月A .xlsx',
+# # r'G:\计算机设计大赛\测试文件\子表6_软二2月A .xlsx',
+# # r'G:\计算机设计大赛\测试文件\子表7_软二3月A.xlsx']
+# # need_add=(4,)
 
 
 # need_add=tuple(input())
 
-# main_table_file=r'G:\计算机设计大赛\测试文件2\m1.xlsx'
-# key=1
-# sub_table_file_list=[
-# r'G:\计算机设计大赛\测试文件2\z1.xlsx',
-# r'G:\计算机设计大赛\测试文件2\z2.xlsx',
-# r'G:\计算机设计大赛\测试文件2\z3.xlsx',
-# r'G:\计算机设计大赛\测试文件2\z4.xlsx',
-# r'G:\计算机设计大赛\测试文件2\z5.xlsx'
-# ]
+main_table_file=r'G:\计算机设计大赛\测试文件2\m1.xlsx'
+key=1
+need_add=()
+sub_table_file_list=[
+r'G:\计算机设计大赛\测试文件2\z1.xlsx',
+r'G:\计算机设计大赛\测试文件2\z2.xlsx',
+r'G:\计算机设计大赛\测试文件2\z3.xlsx',
+r'G:\计算机设计大赛\测试文件2\z4.xlsx',
+r'G:\计算机设计大赛\测试文件2\z5.xlsx'
+]
 
 app=xw.App(visible=False)
 main_wb=app.books.open(main_table_file)
