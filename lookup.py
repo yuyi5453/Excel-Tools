@@ -1,13 +1,29 @@
 # coding=gbk
-# 此文件包括公式生成功能的各种函数
+
+#对一个区域进行标准化处理
+#全部转换为字符串，并且去空格
+def std_handle(rng):
+    for i in range(0,len(rng)):
+        ele=rng[i]
+        if (isinstance(ele, str)):
+            rng[i] = ele.replace(' ','')
+        elif (isinstance(ele, float)):
+            if (int(ele) == ele):
+                rng[i] = str(int(ele))
+            else:
+                rng[i] = str(ele)
+
+    return
 
 # 将【C】与【A】进行匹配，并将对应【B】列中的值作为结果填入【D】中
-
 def lookup(wb,A,B,C,D):
     sht=wb.sheets[0]
     A_rng=sht.range(A).expand('down').value
+    std_handle(A_rng)
     B_rng=sht.range(B).expand('down').value
+    std_handle(B_rng)
     C_rng=sht.range(C).expand('down').value
+    std_handle(C_rng)
     D_rng=list()
 
     for c in C_rng:
