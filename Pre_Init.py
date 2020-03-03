@@ -1,4 +1,5 @@
-#coding=gbk
+# coding=gbk
+#多变合一功能的预处理
 import xlwings as xw
 def Pre_Init(wb):
     sht=wb.sheets[0];
