@@ -1,8 +1,9 @@
+#coding=gbk
 import tkinter as tk
 import xlwings as xw
 from tkinter import filedialog
 import threading
-import Main1
+import Main
 import time
 from PIL import Image
 
@@ -37,7 +38,7 @@ def call_main_begin():
     button3.pack_forget()
     label2 = tk.Label(window, text='正在合并')
     label2.pack()
-    Main1.begin(main_tabel_file,sub_table_file_list)
+    Main.begin(main_tabel_file,sub_table_file_list)
     label2.config(text='合并完成')
     button3.pack()
 def begin():

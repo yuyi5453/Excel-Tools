@@ -91,16 +91,17 @@ def lookup(wb1,wb2,A,B,C,D):
 
     sht2.range(D).options(transpose=True).value = D_rng
     return
-import xlwings as xl
-try:
-    app = xl.App(visible=False)
-    wb = app.books.open(r'C:\Users\DSJ\Desktop\test.xlsx')
-    A = 'A2:A8'
-    B = 'B2:B8'
-    C = 'C2:C4'
-    D = 'D2:D4'
-    lookup(wb, A, B, C, D)
-    wb.save()
-    wb.close()
-finally:
-    app.quit()
+
+# import xlwings as xl
+# try:
+#     app = xl.App(visible=False)
+#     wb = app.books.open(r'C:\Users\DSJ\Desktop\test.xlsx')
+#     A = 'A2:A8'
+#     B = 'B2:B8'
+#     C = 'C2:C4'
+#     D = 'D2:D4'
+#     lookup(wb, A, B, C, D)
+#     wb.save()
+#     wb.close()
+# finally:
+#     app.quit()
