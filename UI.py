@@ -9,11 +9,11 @@ import Main1
 
 def select_main_table():
     global main_table_file
-    main_table_file = filedialog.askopenfilename(filetypes=[('excel file(.*xlsx)', '.xlsx')])  # »ñµÃÑ¡ÔñºÃµÄÎÄ¼ş
+    main_table_file = filedialog.askopenfilename(filetypes=[('excel file(.*xlsx)', '.xlsx')])  # è·å¾—é€‰æ‹©å¥½çš„æ–‡ä»¶
     main_table_file = main_table_file.replace('/', '\\')
     print(main_table_file)
-    main_table_text.insert('insert','Ö÷±íÊÇ£º' + main_table_file)
-    select_main_table_button['text'] = 'ÖØĞÂÑ¡ÔñÖ÷±í'
+    main_table_text.insert('insert','ä¸»è¡¨æ˜¯ï¼š' + main_table_file)
+    select_main_table_button['text'] = 'é‡æ–°é€‰æ‹©ä¸»è¡¨'
     print(main_table_file)
     print(len(main_table_file))
     return main_table_file
@@ -29,12 +29,12 @@ def select_sub_table():
         namelist.append(name)
         str = str + name + '\n'
     sub_table_file_list = namelist
-    # Çå¿ÕÔ­À´µÄÄÚÈİ
+    # æ¸…ç©ºåŸæ¥çš„å†…å®¹
     sub_table_text.delete('1.0', 'end')
-    sub_table_text.insert('insert', '×Ó±í: \n' + str)
+    sub_table_text.insert('insert', 'å­è¡¨: \n' + str)
     sub_table_text.update()
     #t['height'] = min(len(sub_table_file_list) + 1, 15)
-    select_sub_table_button['text'] = 'ÖØĞÂÑ¡Ôñ×Ó±í'
+    select_sub_table_button['text'] = 'é‡æ–°é€‰æ‹©å­è¡¨'
     return namelist
 
 
@@ -42,79 +42,81 @@ def call_main_begin():
     global main_table_file, sub_table_file_list, window,begin_meger_button
     begin_meger_button.place_forget()
     time.sleep(2)
-    label2 = tk.Label(window, text='ÕıÔÚºÏ²¢')
+    label2 = tk.Label(window, text='æ­£åœ¨åˆå¹¶')
     label2.place(x=300,y=380)
     time.sleep(2)
     label2.place_forget()
     Main1.begin(main_table_file, sub_table_file_list)
-    label2.config(text='ºÏ²¢Íê³É')
+    label2.config(text='åˆå¹¶å®Œæˆ')
     time.sleep(2)
     begin_meger_button.place(x=300, y=380)
 
 
 def begin():
     if(len(main_table_file)==0):
-        tkinter.messagebox.showwarning(title='Hi', message='Ö÷±íÃ»Ñ¡')
+        tkinter.messagebox.showwarning(title='Hi', message='ä¸»è¡¨æ²¡é€‰')
         return
     if(len(sub_table_file_list)==0):
-        tkinter.messagebox.showwarning(title='hi',message='Ã»Ñ¡´Ó±í')
+        tkinter.messagebox.showwarning(title='hi',message='æ²¡é€‰ä»è¡¨')
         return
     thread1 = threading.Thread(target=call_main_begin)
     thread1.start()
 
-#´´½¨Ö÷´°¿Ú
+#åˆ›å»ºä¸»çª—å£
 window = tk.Tk()
 window.title('Excel tool')
 window.geometry('800x500')
 
-#´´½¨Ö÷frame
+#åˆ›å»ºä¸»frame
 frame = tk.Frame(window,width=800,height=500)
 frame.pack()
 
-#navigation_frame: ×ó±ßµÄµ¼º½½çÃæ
+#navigation_frame: å·¦è¾¹çš„å¯¼èˆªç•Œé¢
 navigation_frame = tk.Frame(frame,width=100,height=500,bg='green')
 content_frame = tk.Frame(frame,width=700,height=500)
 navigation_frame.place(x=0,y=0)
 content_frame.place(x=100,y=0)
 
 
-#²¼ÖÃµ¼º½½çÃæµÄÍ¼Æ¬
+#å¸ƒç½®å¯¼èˆªç•Œé¢çš„å›¾ç‰‡
 canvas = tk.Canvas(navigation_frame, bg='blue', height=500, width=100)
 canvas.place(x=0,y=0)
 image_file = tk.PhotoImage(file='img\p1.jpg')
 image = canvas.create_image(0, 0, anchor='nw', image=image_file)
 
-#µ¼º½½çÃæµÄlookup°´Å¥ºÍºÏ²¢°´Å¥
-lookup_button = tk.Button(navigation_frame,height=2,text='lookup\nº¯ÊıÉú³É',background='GhostWhite')
+#å¯¼èˆªç•Œé¢çš„lookupæŒ‰é’®å’Œåˆå¹¶æŒ‰é’®
+lookup_button = tk.Button(navigation_frame,height=2,text='lookup\nå‡½æ•°ç”Ÿæˆ',background='GhostWhite')
 lookup_button.place(x=20,y=130)
-meger_button = tk.Button(navigation_frame,height=2,text='ºÏ²¢±í¸ñ',background='GhostWhite')
+meger_button = tk.Button(navigation_frame,height=2,text='åˆå¹¶è¡¨æ ¼',background='GhostWhite')
 meger_button.place(x=20,y=260)
 
-#Ñ¡ÔñÖ÷±íµÄ°´Å¥¼°Æä×ó±ß¶ÔÓ¦µÄtext
-select_main_table_button = tk.Button(content_frame,height=1,text=' Ñ¡ÔñÖ÷±í ',background='GhostWhite',command=select_main_table)
+#é€‰æ‹©ä¸»è¡¨çš„æŒ‰é’®åŠå…¶å·¦è¾¹å¯¹åº”çš„text
+select_main_table_button = tk.Button(content_frame,height=1,text=' é€‰æ‹©ä¸»è¡¨ ',background='GhostWhite',command=select_main_table)
 select_main_table_button.place(x=600,y=47)
 text_width = 55
 main_table_text = tk.Text(content_frame,height=1,width=text_width,font=('Arial',12))
 main_table_text_pos_x = 70
 main_table_text.place(x=main_table_text_pos_x,y=50)
 
-#×Ó±íµÄtext¿ò
+#å­è¡¨çš„textæ¡†
 sub_table_text = tk.Text(content_frame,height=14,width=text_width,font=('Arial',12))
 sub_table_text.place(x=main_table_text_pos_x,y=100)
-#Ñ¡Ôñ×Ó±íµÄ°´Å¥
-select_sub_table_button = tk.Button(content_frame,height=1,text=' Ñ¡Ôñ×Ó±í ',background='GhostWhite',command=select_sub_table)
+#é€‰æ‹©å­è¡¨çš„æŒ‰é’®
+select_sub_table_button = tk.Button(content_frame,height=1,text=' é€‰æ‹©å­è¡¨ ',background='GhostWhite',command=select_sub_table)
 select_sub_table_button.place(x=600,y=130)
-#É¾³ı×Ó±íµÄ°´Å¥
-delete_sub_table_button = tk.Button(content_frame,height=1,text=' É¾³ı×Ó±í ',background='GhostWhite')
+#åˆ é™¤å­è¡¨çš„æŒ‰é’®
+delete_sub_table_button = tk.Button(content_frame,height=1,text=' åˆ é™¤å­è¡¨ ',background='GhostWhite')
 delete_sub_table_button.place(x=600,y=180)
-#Ñ¡ÔñÎÄ¼ş¼ĞµÄ°´Å¥
-select_folder_button = tk.Button(content_frame,height=1,text='Ñ¡ÔñÎÄ¼ş¼Ğ',background='GhostWhite')
+#é€‰æ‹©æ–‡ä»¶å¤¹çš„æŒ‰é’®
+select_folder_button = tk.Button(content_frame,height=1,text='é€‰æ‹©æ–‡ä»¶å¤¹',background='GhostWhite')
 select_folder_button.place(x=600,y=230)
-#¿ªÊ¼ºÏ²¢µÄ°´Å¥
-begin_meger_button = tk.Button(content_frame,height=1,text='¿ªÊ¼ºÏ²¢',background='GhostWhite',command=begin)
+#å¼€å§‹åˆå¹¶çš„æŒ‰é’®
+begin_meger_button = tk.Button(content_frame,height=1,text='å¼€å§‹åˆå¹¶',background='GhostWhite',command=begin)
 begin_meger_button.place(x=300,y=380)
 
 main_table_file = ''
 sub_table_file_list = ''
 
 tk.mainloop()
+
+print 'è¯•è¯•ä¸­æ–‡ä¹±ç é—®é¢˜'
