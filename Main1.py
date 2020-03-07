@@ -9,22 +9,22 @@ from All_Merge import *
 # sub_table_file_list=[]
 # for line in sys.stdin:
 #     sub_table_file_list.extend(line.split())
-# main_table_file=r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶\æ¨¡æ¿(æ¯è¡¨).xlsx'
+# main_table_file=r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\Ä£°å(Ä¸±í).xlsx'
 # # key=2
 # # sub_table_file_list=[
-# # r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶\å­è¡¨1_B.xlsx',
-# # r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶\å­è¡¨2_è½¯äºŒCD.xlsx',
-# # r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶\å­è¡¨3_è½¯ä¸€CD.xlsx',
-# # r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶\å­è¡¨4_è½¯ä¸€2æœˆA.xlsx',
-# # r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶\å­è¡¨5_è½¯ä¸€3æœˆA .xlsx',
-# # r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶\å­è¡¨6_è½¯äºŒ2æœˆA .xlsx',
-# # r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶\å­è¡¨7_è½¯äºŒ3æœˆA.xlsx']
+# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í1_B.xlsx',
+# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í2_Èí¶şCD.xlsx',
+# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í3_ÈíÒ»CD.xlsx',
+# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í4_ÈíÒ»2ÔÂA.xlsx',
+# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í5_ÈíÒ»3ÔÂA .xlsx',
+# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í6_Èí¶ş2ÔÂA .xlsx',
+# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í7_Èí¶ş3ÔÂA.xlsx']
 # # need_add=(4,)
 
 
 # need_add=tuple(input())
 def begin(main_table_file,sub_table_file_list):
-    # main_table_file=r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶2\m1.xlsx'
+    # main_table_file=r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş2\m1.xlsx'
     key=2
     need_add=()
     print(main_table_file)
@@ -32,24 +32,23 @@ def begin(main_table_file,sub_table_file_list):
     for name in sub_table_file_list:
         print(name)
     # sub_table_file_list=[
-    # r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶2\z1.xlsx',
-    # r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶2\z2.xlsx',
-    # r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶2\z3.xlsx',
-    # r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶2\z4.xlsx',
-    # r'G:\è®¡ç®—æœºè®¾è®¡å¤§èµ›\æµ‹è¯•æ–‡ä»¶2\z5.xlsx'
+    # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş2\z1.xlsx',
+    # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş2\z2.xlsx',
+    # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş2\z3.xlsx',
+    # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş2\z4.xlsx',
+    # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş2\z5.xlsx'
     # ]
-    # è¯•è¯•
 
     app=xw.App(visible=False)
     main_wb=app.books.open(main_table_file)
 
     mem_map={}
     try:
-        print('é¢„å¤„ç†')
+        print('Ô¤´¦Àí')
         col_num,row_start=Pre_Init(wb=main_wb)
-        print('å¼€å§‹åˆå¹¶')
+        print('¿ªÊ¼ºÏ²¢')
         all_merge(wb=main_wb,row_start=row_start,col_num=col_num,file_name_list=sub_table_file_list,mem_map=mem_map,key=key,need_add_col=need_add)
-        print('åˆå¹¶å®Œæˆ')
+        print('ºÏ²¢Íê³É')
 
     finally:
         print('finally')
