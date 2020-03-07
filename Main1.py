@@ -1,3 +1,4 @@
+# coding=gbk
 import sys
 import xlwings as xw
 from Pre_Init import *
