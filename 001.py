@@ -1,4 +1,4 @@
-#coding=gbk
+# encoding:utf-8
 import xlwings as xw
 import numpy as np
 import wx
@@ -6,7 +6,7 @@ import copy
 app=xw.App(visible=False,add_book=False)
 app.display_alerts=False
 
-wb=app.books.open(r'G:\计算机设计大赛\111.xlsx')
+wb=app.books.open(r'G:\璁＄畻鏈鸿璁″ぇ璧沑111.xlsx')
 sht=wb.sheets[0]
 rng=sht.range("A1")
 rng.value='123   '

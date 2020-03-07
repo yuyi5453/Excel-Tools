@@ -1,18 +1,18 @@
-# coding=gbk
-#¶à±äºÏÒ»¹¦ÄÜµÄÔ¤´¦Àí
+# encoding:utf-8
+#å¤šå˜åˆä¸€åŠŸèƒ½çš„é¢„å¤„ç†
 import xlwings as xw
 def Pre_Init(wb):
     sht=wb.sheets[0];
     rng=sht.range("A1").expand("down").value
-    if rng==None: #rng=None ´ú±íÄ¸±íÃ»ÓĞ¸ñÊ½
+    if rng==None: #rng=None ä»£è¡¨æ¯è¡¨æ²¡æœ‰æ ¼å¼
         col_num=0
         l=0
-    else: #Ä¸±íÓĞ¸ñÊ½
+    else: #æ¯è¡¨æœ‰æ ¼å¼
         l=len(rng)
         if  isinstance(rng, str) is True:
             l=1
         right_rng=sht.range((l,1)).expand("right").value
-        col_num = len(right_rng)  # ÁĞ¸öµÄÊı
+        col_num = len(right_rng)  # åˆ—ä¸ªçš„æ•°
         if isinstance(right_rng,str):
             col_num=1
 

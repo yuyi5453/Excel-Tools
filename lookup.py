@@ -1,6 +1,6 @@
-# coding=gbk
+# encoding:utf-8
 
-#¹æ·¶»¯¼ì²é
+#è§„èŒƒåŒ–æ£€æŸ¥
 def check(a,b,c,d):
     if len(a)!=len(b):
         return 1
@@ -8,8 +8,8 @@ def check(a,b,c,d):
         return 2
     return 0
 
-#¶ÔÒ»¸öÇøÓò½øĞĞ±ê×¼»¯´¦Àí
-#È«²¿×ª»»Îª×Ö·û´®£¬²¢ÇÒÈ¥¿Õ¸ñ
+#å¯¹ä¸€ä¸ªåŒºåŸŸè¿›è¡Œæ ‡å‡†åŒ–å¤„ç†
+#å…¨éƒ¨è½¬æ¢ä¸ºå­—ç¬¦ä¸²ï¼Œå¹¶ä¸”å»ç©ºæ ¼
 def std_handle(rng):
     for i in range(0,len(rng)):
         ele=rng[i]
@@ -23,7 +23,7 @@ def std_handle(rng):
 
     return
 
-# ½«¡¾C¡¿Óë¡¾A¡¿½øĞĞÆ¥Åä£¬²¢½«¶ÔÓ¦¡¾B¡¿ÁĞÖĞµÄÖµ×÷Îª½á¹ûÌîÈë¡¾D¡¿ÖĞ
+# å°†ã€Cã€‘ä¸ã€Aã€‘è¿›è¡ŒåŒ¹é…ï¼Œå¹¶å°†å¯¹åº”ã€Bã€‘åˆ—ä¸­çš„å€¼ä½œä¸ºç»“æœå¡«å…¥ã€Dã€‘ä¸­
 def lookup(wb,A,B,C,D):
     sht=wb.sheets[0]
     A_rng=sht.range(A).expand('down').value
@@ -36,10 +36,10 @@ def lookup(wb,A,B,C,D):
 
     err = check(A_rng, B_rng, C_rng, D_rng)
     if err == 1:
-        print('A,BÇøÓò´óĞ¡²»Ò»ÖÂ')
+        print('A,BåŒºåŸŸå¤§å°ä¸ä¸€è‡´')
         return
     elif err == 2:
-        print('C,D´óĞ¡²»Ò»ÖÂ')
+        print('C,Då¤§å°ä¸ä¸€è‡´')
         return
 
     for c in C_rng:
@@ -57,7 +57,7 @@ def lookup(wb,A,B,C,D):
     sht.range(D).options(transpose=True).value=D_rng
     return
 
-#·Ö±íÆ¥Åä  ÓÃÓÚABºÍCD²»ÔÚÍ¬Ò»¸öÎÄ¼şÖĞ
+#åˆ†è¡¨åŒ¹é…  ç”¨äºABå’ŒCDä¸åœ¨åŒä¸€ä¸ªæ–‡ä»¶ä¸­
 def lookup(wb1,wb2,A,B,C,D):
     sht1=wb1.sheets[0]
     sht2=wb2.sheets[0]
@@ -71,10 +71,10 @@ def lookup(wb1,wb2,A,B,C,D):
 
     err=check(A_rng,B_rng,C_rng,D_rng)
     if err==1:
-        print('A,BÇøÓò´óĞ¡²»Ò»ÖÂ')
+        print('A,BåŒºåŸŸå¤§å°ä¸ä¸€è‡´')
         return
     elif err==2:
-        print('C,D´óĞ¡²»Ò»ÖÂ')
+        print('C,Då¤§å°ä¸ä¸€è‡´')
         return
 
     for c in C_rng:

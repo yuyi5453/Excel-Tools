@@ -1,4 +1,4 @@
-#coding=gbk
+# encoding:utf-8
 # Excel-Tools
 
 

@@ -1,6 +1,7 @@
+# encoding:utf-8
 from Add_Modify import  *
 def sub_table_solve(mem_map,sub_wb,row_start,col_num,key,need_add_col):
-    # ½«sub_wbÀïµÄÊı¾İ´æµ½/ĞŞ¶©µ½mem_mapÖĞ
+    # å°†sub_wbé‡Œçš„æ•°æ®å­˜åˆ°/ä¿®è®¢åˆ°mem_mapä¸­
     sht=sub_wb.sheets[0]
     rng=sht.range(row_start,key).expand('down').value
     size=len(rng)
@@ -9,7 +10,7 @@ def sub_table_solve(mem_map,sub_wb,row_start,col_num,key,need_add_col):
     for sub_rng in rng:
         std_handle(li=sub_rng, key=key)
         #
-        #¿É¼ÓÁĞµÄ´¦Àí
+        #å¯åŠ åˆ—çš„å¤„ç†
         if sub_rng[key-1] in mem_map :
             map_modify(mem_map=mem_map,lis=sub_rng,key=key,need_add_col=need_add_col)
         else:
