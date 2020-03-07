@@ -118,3 +118,5 @@ main_table_file = ''
 sub_table_file_list = ''
 
 tk.mainloop()
+
+print('试试')
