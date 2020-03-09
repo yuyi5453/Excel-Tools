@@ -30,7 +30,7 @@ def select_sub_table():
         namelist.append(name)
         #将子表加入listbox中
         sub_table_list.insert('end',name)
-    sub_table_file_list = namelist
+    # sub_table_file_list = namelist
     #t['height'] = min(len(sub_table_file_list) + 1, 15)
     select_sub_table_button['text'] = '重新选择子表'
     return namelist
@@ -51,9 +51,16 @@ def call_main_begin():
 
 
 def begin():
+    global sub_table_file_list
     if(len(main_table_file)==0):
         tkinter.messagebox.showwarning(title='Hi', message='主表没选')
         return
+
+    namelist=[]
+    for i in range(0,sub_table_list.size()):
+        namelist.append(sub_table_list.get(i))
+
+    sub_table_file_list=namelist
     if(len(sub_table_file_list)==0):
         tkinter.messagebox.showwarning(title='hi',message='没选从表')
         return
