@@ -5,7 +5,13 @@ import tkinter.messagebox
 import threading
 import time
 import Main1
+import sys
+import signal
 
+#关闭窗口时间
+def close_win():
+    window.destroy()
+    return
 
 def select_main_table():
     global main_table_file
@@ -67,6 +73,7 @@ def begin():
         tkinter.messagebox.showwarning(title='hi',message='没选从表')
         return
     thread1 = threading.Thread(target=call_main_begin)
+    thread1.daemon=True
     thread1.start()
 
 #删除选择的子表
@@ -132,4 +139,5 @@ begin_meger_button.place(x=300,y=400)
 main_table_file = ''
 sub_table_file_list = ''
 
+window.protocol('WM_DELETE_WINDOW',close_win)
 tk.mainloop()
