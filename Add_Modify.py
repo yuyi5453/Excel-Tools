@@ -33,7 +33,7 @@ def std_handle(li, key):
 def map_add(mem_map, li, key):
     mem_map[li[key - 1]] = []
     mem_map[li[key - 1]] = copy.deepcopy(li)
-    print(mem_map)
+    # print(mem_map)
     return
 
 
@@ -62,5 +62,5 @@ def map_modify(mem_map, lis, key,need_add_col):
         elif (i+1 in need_add_col):
             mem_map[key_value][i] = lis[i] + mem_map[key_value][i]
 
-    print(mem_map)
+    # print(mem_map)
     return

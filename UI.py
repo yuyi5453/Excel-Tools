@@ -49,8 +49,10 @@ def call_main_begin():
     time.sleep(2)
     begin_meger_button.place(x=300, y=380)
 
+    sub_table_list.config(state=tk.NORMAL)
 
 def begin():
+    sub_table_list.config(state=tk.DISABLED)
     global sub_table_file_list
     if(len(main_table_file)==0):
         tkinter.messagebox.showwarning(title='Hi', message='主表没选')
