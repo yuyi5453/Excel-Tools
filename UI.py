@@ -23,16 +23,14 @@ def select_sub_table():
     global sub_table_file_list
     sub_table_file_list = filedialog.askopenfilenames(filetypes=[('excel file (.*xlsx)', '.xlsx')])
     namelist = []
-    str = ''
+    #清空子表
+    sub_table_list.delete(0,'end')
     for name in sub_table_file_list:
         name = name.replace('/', '\\')
         namelist.append(name)
-        str = str + name + '\n'
+        #将子表加入listbox中
+        sub_table_list.insert('end',name)
     sub_table_file_list = namelist
-    # 清空原来的内容
-    sub_table_text.delete('1.0', 'end')
-    sub_table_text.insert('insert', '子表: \n' + str)
-    sub_table_text.update()
     #t['height'] = min(len(sub_table_file_list) + 1, 15)
     select_sub_table_button['text'] = '重新选择子表'
     return namelist
@@ -61,6 +59,12 @@ def begin():
         return
     thread1 = threading.Thread(target=call_main_begin)
     thread1.start()
+
+#删除选择的子表
+def delete_sub_table(event):
+    pos=sub_table_list.curselection()
+    sub_table_list.delete(pos)
+    return
 
 #创建主窗口
 window = tk.Tk()
@@ -98,25 +102,25 @@ main_table_text = tk.Text(content_frame,height=1,width=text_width,font=('Arial',
 main_table_text_pos_x = 70
 main_table_text.place(x=main_table_text_pos_x,y=50)
 
-#子表的text框
-sub_table_text = tk.Text(content_frame,height=14,width=text_width,font=('Arial',12))
-sub_table_text.place(x=main_table_text_pos_x,y=100)
+#子表的listbox框
+sub_table_list=tk.Listbox(content_frame,height=14,width=text_width,font=('Arial',12))
+sub_table_list.place(x=main_table_text_pos_x,y=100)
+sub_table_list.bind('<Double-Button-1>',delete_sub_table)
+
+#提示
+lab=tk.Label(content_frame,text='*双击删除',fg='red')
+lab.place(x=main_table_text_pos_x,y=380)
 #选择子表的按钮
 select_sub_table_button = tk.Button(content_frame,height=1,text=' 选择子表 ',background='GhostWhite',command=select_sub_table)
 select_sub_table_button.place(x=600,y=130)
-#删除子表的按钮
-delete_sub_table_button = tk.Button(content_frame,height=1,text=' 删除子表 ',background='GhostWhite')
-delete_sub_table_button.place(x=600,y=180)
 #选择文件夹的按钮
 select_folder_button = tk.Button(content_frame,height=1,text='选择文件夹',background='GhostWhite')
 select_folder_button.place(x=600,y=230)
 #开始合并的按钮
 begin_meger_button = tk.Button(content_frame,height=1,text='开始合并',background='GhostWhite',command=begin)
-begin_meger_button.place(x=300,y=380)
+begin_meger_button.place(x=300,y=400)
 
 main_table_file = ''
 sub_table_file_list = ''
 
 tk.mainloop()
-
-print('试试')
