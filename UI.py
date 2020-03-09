@@ -6,7 +6,7 @@ import threading
 import time
 import Main1
 import sys
-import signal
+from Enable_write import *
 
 #关闭窗口时间
 def close_win():
@@ -17,11 +17,12 @@ def select_main_table():
     global main_table_file
     main_table_file = filedialog.askopenfilename(filetypes=[('excel file(.*xlsx)', '.xlsx')])  # 获得选择好的文件
     main_table_file = main_table_file.replace('/', '\\')
-    print(main_table_file)
-    main_table_text.insert('insert','主表是：' + main_table_file)
+    if is_only_read(main_table_file):
+        tkinter.messagebox.showwarning(title='error', message='主表文件已被某一应用程序打开，请关闭后重试')
+        return
+    main_table_text.delete(1.0,'end')
+    main_table_text.insert('insert', '主表是：' + main_table_file)
     select_main_table_button['text'] = '重新选择主表'
-    print(main_table_file)
-    print(len(main_table_file))
     return main_table_file
 
 
@@ -58,16 +59,22 @@ def call_main_begin():
     sub_table_list.config(state=tk.NORMAL)
 
 def begin():
-    sub_table_list.config(state=tk.DISABLED)
     global sub_table_file_list
-    if(len(main_table_file)==0):
+    if (len(main_table_file) == 0):
         tkinter.messagebox.showwarning(title='Hi', message='主表没选')
         return
+
+    if is_only_read(main_table_file):
+        tkinter.messagebox.showwarning(title='error', message='主表文件已被某一应用程序打开，请关闭后重试')
+        return
+    sub_table_list.config(state=tk.DISABLED)
 
     namelist=[]
     for i in range(0,sub_table_list.size()):
         namelist.append(sub_table_list.get(i))
-
+        if is_only_read(sub_table_list.get(i)):
+            tkinter.messagebox.showwarning(title='error', message='子表文件'+sub_table_list.get(i)+'已被某一应用程序打开，请关闭后重试')
+            return
     sub_table_file_list=namelist
     if(len(sub_table_file_list)==0):
         tkinter.messagebox.showwarning(title='hi',message='没选从表')
