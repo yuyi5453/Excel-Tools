@@ -8,7 +8,6 @@ import Main1
 import sys
 import re
 from Enable_write import *
-import judge_num
 #关闭窗口时间
 def close_win():
     window.destroy()
@@ -58,6 +57,14 @@ def call_main_begin(key,need_add):
     begin_meger_button.place(x=300, y=380)
     sub_table_list.config(state=tk.NORMAL)
 
+def is_digit(c):
+    return c>='0' and c <= '9'
+def is_integer(str):
+    for c in str:
+        if(is_digit(c)==False):
+            return False
+    return True
+
 def begin():
     global sub_table_file_list, input_key_entry,input_addble_col_entry
     key = input_key_entry.get()
@@ -65,7 +72,7 @@ def begin():
     if(key==''):
         tkinter.messagebox.showwarning(title='error', message='请输入主键')
         return
-    if(judge_num.is_integer(key)==False):
+    if(is_integer(key)==False):
         tkinter.messagebox.showwarning(title='error', message='主键格式应为数字')
         return
     key = int(key)
