@@ -1,58 +1,28 @@
-#coding=gbk
+# encoding:utf-8
 import sys
 import xlwings as xw
 from Pre_Init import *
 from All_Merge import *
 
-# main_table_file=input()
-# key=input()
-# sub_table_file_list=[]
-# for line in sys.stdin:
-#     sub_table_file_list.extend(line.split())
-# main_table_file=r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\Ä£°å(Ä¸±í).xlsx'
-# # key=2
-# # sub_table_file_list=[
-# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í1_B.xlsx',
-# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í2_Èí¶şCD.xlsx',
-# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í3_ÈíÒ»CD.xlsx',
-# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í4_ÈíÒ»2ÔÂA.xlsx',
-# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í5_ÈíÒ»3ÔÂA .xlsx',
-# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í6_Èí¶ş2ÔÂA .xlsx',
-# # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş\×Ó±í7_Èí¶ş3ÔÂA.xlsx']
-# # need_add=(4,)
-
-
-# need_add=tuple(input())
-def begin(main_table_file,sub_table_file_list):
-    # main_table_file=r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş2\m1.xlsx'
-    key=2
-    need_add=()
-    print(main_table_file)
-    print(sub_table_file_list)
-    for name in sub_table_file_list:
-        print(name)
-    # sub_table_file_list=[
-    # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş2\z1.xlsx',
-    # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş2\z2.xlsx',
-    # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş2\z3.xlsx',
-    # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş2\z4.xlsx',
-    # r'G:\¼ÆËã»úÉè¼Æ´óÈü\²âÊÔÎÄ¼ş2\z5.xlsx'
-    # ]
-
-    app=xw.App(visible=False)
-    main_wb=app.books.open(main_table_file)
-
-    mem_map={}
+def begin(main_table_file,sub_table_file_list,key,need_add):
     try:
-        print('Ô¤´¦Àí')
+        #key=2
+        #need_add=(5,7,9)
+
+        app=xw.App(visible=False)
+        main_wb=app.books.open(main_table_file)
+
+        mem_map={}
+
+        print('é¢„å¤„ç†')
         col_num,row_start=Pre_Init(wb=main_wb)
-        print('¿ªÊ¼ºÏ²¢')
+        print('å¼€å§‹åˆå¹¶')
         all_merge(wb=main_wb,row_start=row_start,col_num=col_num,file_name_list=sub_table_file_list,mem_map=mem_map,key=key,need_add_col=need_add)
-        print('ºÏ²¢Íê³É')
+        print('åˆå¹¶å®Œæˆ')
+        main_wb.save()
+        main_wb.close()
 
     finally:
         print('finally')
-        main_wb.save()
-        main_wb.close()
         app.quit()
         app.kill()
