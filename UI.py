@@ -44,7 +44,9 @@ def select_sub_table():
     return namelist
 
 
+
 def call_main_begin():
+
     global main_table_file, sub_table_file_list, window,begin_meger_button
     begin_meger_button.place_forget()
     time.sleep(2)
@@ -52,7 +54,8 @@ def call_main_begin():
     label2.place(x=300,y=380)
     time.sleep(2)
     label2.place_forget()
-    Main1.begin(main_table_file, sub_table_file_list)
+
+    Main1.begin(main_table_file, sub_table_file_list,key,need_add)
     label2.config(text='合并完成')
     time.sleep(2)
     begin_meger_button.place(x=300, y=380)
@@ -68,9 +71,24 @@ def is_integer(str):
     return True
 
 def begin():
-    global sub_table_file_list
-    if (len(main_table_file) == 0):
-        tkinter.messagebox.showwarning(title='Hi', message='主表没选')
+
+    global sub_table_file_list, input_key_entry,input_addble_col_entry
+    key = input_key_entry.get()
+    print(type(key),key)
+    if(key==''):
+        tkinter.messagebox.showwarning(title='error', message='请输入主键')
+        return
+    if(is_integer(key)==False):
+        tkinter.messagebox.showwarning(title='error', message='主键格式应为数字')
+        return
+    key = int(key)
+    need_add = []
+    addble_col = input_addble_col_entry.get()
+    need_add_list = [int(s) for s in re.findall(r'\b\d+\b', addble_col)]
+    need_add = tuple(need_add_list)
+    print(need_add)
+    if(len(main_table_file) == 0):
+        tkinter.messagebox.showwarning(title='error', message='主表没选')
         return
 
     if is_only_read(main_table_file):
@@ -88,7 +106,9 @@ def begin():
     if(len(sub_table_file_list)==0):
         tkinter.messagebox.showwarning(title='hi',message='没选从表')
         return
-    thread1 = threading.Thread(target=call_main_begin)
+
+    thread1 = threading.Thread(target=call_main_begin,args=(key,need_add))
+
     thread1.daemon=True
     thread1.start()
 
@@ -114,6 +134,7 @@ navigation_frame.place(x=0,y=0)
 content_frame.place(x=100,y=0)
 
 
+
 #布置导航界面的图片
 canvas = tk.Canvas(navigation_frame, bg='blue', height=500, width=100)
 canvas.place(x=0,y=0)
@@ -126,31 +147,48 @@ lookup_button.place(x=20,y=130)
 meger_button = tk.Button(navigation_frame,height=2,text='合并表格',background='GhostWhite')
 meger_button.place(x=20,y=260)
 
+
+dealt_y = 30
+
+label = tk.Label(content_frame,text='主健：')
+label.place(x=70, y=20)
+input_key_entry = tk.Entry(content_frame,width=12,font=('Arial',12))
+input_key_entry.place(x=70, y=40)
+
+label = tk.Label(content_frame,text='可加列：')
+label.place(x=270, y=20)
+input_addble_col_entry = tk.Entry(content_frame,width=12,font=('Arial',12))
+input_addble_col_entry.place(x=270, y=40)
+
+
+
 #选择主表的按钮及其左边对应的text
 select_main_table_button = tk.Button(content_frame,height=1,text=' 选择主表 ',background='GhostWhite',command=select_main_table)
-select_main_table_button.place(x=600,y=47)
+select_main_table_button.place(x=600,y=47+dealt_y)
 text_width = 55
 main_table_text = tk.Text(content_frame,height=1,width=text_width,font=('Arial',12))
 main_table_text_pos_x = 70
-main_table_text.place(x=main_table_text_pos_x,y=50)
+main_table_text.place(x=main_table_text_pos_x,y=50+dealt_y)
 
 #子表的listbox框
 sub_table_list=tk.Listbox(content_frame,height=14,width=text_width,font=('Arial',12))
-sub_table_list.place(x=main_table_text_pos_x,y=100)
+sub_table_list.place(x=main_table_text_pos_x,y=100+dealt_y)
 sub_table_list.bind('<Double-Button-1>',delete_sub_table)
+
+
 
 #提示
 lab=tk.Label(content_frame,text='*双击删除',fg='red')
-lab.place(x=main_table_text_pos_x,y=380)
+lab.place(x=main_table_text_pos_x, y=380+dealt_y)
 #选择子表的按钮
 select_sub_table_button = tk.Button(content_frame,height=1,text=' 选择子表 ',background='GhostWhite',command=select_sub_table)
-select_sub_table_button.place(x=600,y=130)
+select_sub_table_button.place(x=600, y=130+dealt_y)
 #选择文件夹的按钮
 select_folder_button = tk.Button(content_frame,height=1,text='选择文件夹',background='GhostWhite')
-select_folder_button.place(x=600,y=230)
+select_folder_button.place(x=600, y=230+dealt_y)
 #开始合并的按钮
 begin_meger_button = tk.Button(content_frame,height=1,text='开始合并',background='GhostWhite',command=begin)
-begin_meger_button.place(x=300,y=400)
+begin_meger_button.place(x=300,y=400+dealt_y)
 
 main_table_file = ''
 sub_table_file_list = ''
