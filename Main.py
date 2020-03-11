@@ -4,10 +4,10 @@ import xlwings as xw
 from Pre_Init import *
 from All_Merge import *
 
-def begin(main_table_file,sub_table_file_list):
+def begin(main_table_file,sub_table_file_list,key,need_add):
     try:
-        key=2
-        need_add=(5,7,9)
+        #key=2
+        #need_add=(5,7,9)
 
         app=xw.App(visible=False)
         main_wb=app.books.open(main_table_file)
