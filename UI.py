@@ -6,6 +6,7 @@ import threading
 import time
 import Main1
 import sys
+import re
 from Enable_write import *
 
 #关闭窗口时间
@@ -57,6 +58,14 @@ def call_main_begin():
     begin_meger_button.place(x=300, y=380)
 
     sub_table_list.config(state=tk.NORMAL)
+
+def is_digit(c):
+    return c>='0' and c <= '9'
+def is_integer(str):
+    for c in str:
+        if(is_digit(c)==False):
+            return False
+    return True
 
 def begin():
     global sub_table_file_list
