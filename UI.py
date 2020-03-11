@@ -8,6 +8,7 @@ import Main1
 import sys
 import re
 from Enable_write import *
+
 #关闭窗口时间
 def close_win():
     window.destroy()
@@ -43,7 +44,9 @@ def select_sub_table():
     return namelist
 
 
-def call_main_begin(key,need_add):
+
+def call_main_begin():
+
     global main_table_file, sub_table_file_list, window,begin_meger_button
     begin_meger_button.place_forget()
     time.sleep(2)
@@ -51,10 +54,12 @@ def call_main_begin(key,need_add):
     label2.place(x=300,y=380)
     time.sleep(2)
     label2.place_forget()
+
     Main1.begin(main_table_file, sub_table_file_list,key,need_add)
     label2.config(text='合并完成')
     time.sleep(2)
     begin_meger_button.place(x=300, y=380)
+
     sub_table_list.config(state=tk.NORMAL)
 
 def is_digit(c):
@@ -66,6 +71,7 @@ def is_integer(str):
     return True
 
 def begin():
+
     global sub_table_file_list, input_key_entry,input_addble_col_entry
     key = input_key_entry.get()
     print(type(key),key)
@@ -100,7 +106,9 @@ def begin():
     if(len(sub_table_file_list)==0):
         tkinter.messagebox.showwarning(title='hi',message='没选从表')
         return
+
     thread1 = threading.Thread(target=call_main_begin,args=(key,need_add))
+
     thread1.daemon=True
     thread1.start()
 
@@ -124,6 +132,7 @@ navigation_frame = tk.Frame(frame,width=100,height=500,bg='green')
 content_frame = tk.Frame(frame,width=700,height=500)
 navigation_frame.place(x=0,y=0)
 content_frame.place(x=100,y=0)
+
 
 
 #布置导航界面的图片
@@ -183,5 +192,6 @@ begin_meger_button.place(x=300,y=400+dealt_y)
 
 main_table_file = ''
 sub_table_file_list = ''
+
 window.protocol('WM_DELETE_WINDOW',close_win)
 tk.mainloop()

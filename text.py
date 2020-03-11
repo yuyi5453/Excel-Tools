@@ -1,4 +1,4 @@
-#coding=gbk
+# encoding:utf-8
 def is_number(s):
     try:
         float(s)
@@ -20,10 +20,10 @@ try:
     try:
         raise SystemError
     except:
-        print('内层ex')
+        print('鍐呭眰ex')
     finally:
-        print('内层')
+        print('鍐呭眰')
 except:
-    print('外层ex')
+    print('澶栧眰ex')
 finally:
-    print('外层')
+    print('澶栧眰')

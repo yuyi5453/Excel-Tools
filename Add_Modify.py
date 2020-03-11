@@ -1,4 +1,4 @@
-#coding=gbk
+# encoding:utf-8
 import copy
 
 def is_number(s):
@@ -33,21 +33,21 @@ def std_handle(li, key):
 def map_add(mem_map, li, key):
     mem_map[li[key - 1]] = []
     mem_map[li[key - 1]] = copy.deepcopy(li)
-    print(mem_map)
+    # print(mem_map)
     return
 
 
 def map_modify(mem_map, lis, key,need_add_col):
-    # mem_mapÊÇÒ»¸ö×Öµä£¬listÊÇÁĞ±í£¬key±íÊ¾ÄÄÒ»ÁĞÊÇ×÷Îª¼üÖµÁĞ
+    # mem_mapæ˜¯ä¸€ä¸ªå­—å…¸ï¼Œlistæ˜¯åˆ—è¡¨ï¼Œkeyè¡¨ç¤ºå“ªä¸€åˆ—æ˜¯ä½œä¸ºé”®å€¼åˆ—
     key_value = lis[key - 1]
     length = len(lis)
 
-    #°ÑÓĞ¿ÉÄÜÎª×Ö·û´®µÄ¿É¼ÓÁĞ×ª»»ÎªÊı×Ö
+    #æŠŠæœ‰å¯èƒ½ä¸ºå­—ç¬¦ä¸²çš„å¯åŠ åˆ—è½¬æ¢ä¸ºæ•°å­—
     for c in need_add_col:
         if lis[c-1] is None:
             continue
         if is_number(lis[c-1]) == False:
-            print('¿É¼ÓÁĞÊäÈë´íÎó')
+            print('å¯åŠ åˆ—è¾“å…¥é”™è¯¯')
             raise SystemExit
         if isinstance(lis[c-1],str):
             lis[c-1]=float(lis[c-1].replace(' ',''))
@@ -62,5 +62,5 @@ def map_modify(mem_map, lis, key,need_add_col):
         elif (i+1 in need_add_col):
             mem_map[key_value][i] = lis[i] + mem_map[key_value][i]
 
-    print(mem_map)
+    # print(mem_map)
     return
