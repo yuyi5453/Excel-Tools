@@ -1,4 +1,5 @@
 # encoding:utf-8
+import xlwings as xw
 
 #规范化检查
 def check(a,b,c,d):
@@ -24,7 +25,7 @@ def std_handle(rng):
     return
 
 # 将【C】与【A】进行匹配，并将对应【B】列中的值作为结果填入【D】中
-def lookup(wb,A,B,C,D):
+def lookup1(wb,A,B,C,D,tips):
     sht=wb.sheets[0]
     A_rng=sht.range(A).expand('down').value
     std_handle(A_rng)
@@ -36,12 +37,10 @@ def lookup(wb,A,B,C,D):
 
     err = check(A_rng, B_rng, C_rng, D_rng)
     if err == 1:
-        print('A,B区域大小不一致')
-        return
-    elif err == 2:
-        print('C,D大小不一致')
+        tips['text'] = '源区域和返回值区域大小不一致'
         return
 
+    tips['text'] = '开始合并'
     for c in C_rng:
             flag=0
             for i in range(0,len(A_rng)):
@@ -58,7 +57,7 @@ def lookup(wb,A,B,C,D):
     return
 
 #分表匹配  用于AB和CD不在同一个文件中
-def lookup(wb1,wb2,A,B,C,D):
+def lookup(wb1,wb2,A,B,C,D,tips):
     sht1=wb1.sheets[0]
     sht2=wb2.sheets[0]
     A_rng = sht1.range(A).expand('down').value
@@ -71,12 +70,10 @@ def lookup(wb1,wb2,A,B,C,D):
 
     err=check(A_rng,B_rng,C_rng,D_rng)
     if err==1:
-        print('A,B区域大小不一致')
-        return
-    elif err==2:
-        print('C,D大小不一致')
+        tips['text'] = '源区域和返回值区域大小不一致'
         return
 
+    tips['text'] = '开始合并'
     for c in C_rng:
         flag=0
         for i in range(0,len(A_rng)):
@@ -88,11 +85,35 @@ def lookup(wb1,wb2,A,B,C,D):
 
         if flag==0:
             D_rng.append('None')
-
     sht2.range(D).options(transpose=True).value = D_rng
     return
 
-# import xlwings as xl
+def begin(file1,file2,A,B,C,D,tips):
+    app = xw.App(visible=False)
+    try:
+        if file2 != None:
+            wb1 = app.books.open(file1)
+            tips['text'] = '打开文件：' + file1
+            wb2 = app.books.open(file2)
+            tips['text'] = '打开文件：' + file2
+            lookup(wb1, wb2, A, B, C, D,tips)
+            wb1.save()
+            wb2.save()
+            tips['text'] = '合并完成'
+            wb1.close()
+            wb2.close()
+        else:
+            wb1 = app.books.open(file1)
+            tips['text']='打开文件：'+file1
+            lookup1(wb1, A, B, C, D,tips)
+            wb1.save()
+            tips['text'] = '合并完成'
+            wb1.close()
+    finally:
+        app.quit()
+        app.kill()
+    return
+
 # try:
 #     app = xl.App(visible=False)
 #     wb = app.books.open(r'C:\Users\DSJ\Desktop\test.xlsx')
