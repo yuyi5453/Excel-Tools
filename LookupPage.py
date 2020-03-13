@@ -8,7 +8,6 @@ from Enable_write import *
 class LookupPage():
     def __init__(self,master):
         self.lookupPage=tk.Frame(master,width=700,height=500)
-        self.lookupPage.pack()
         self.open_file_button1=tk.Button(self.lookupPage,text='打开表格',command=lambda :self.open_file1(self.file1),height=1)
         self.open_file_button1.place(x=50,y=50)
         self.file1=tk.Text(self.lookupPage,width=50,height=1,font=('Arial',12))

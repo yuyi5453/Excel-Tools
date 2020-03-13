@@ -166,9 +166,6 @@ class merger_UI:
         self.sub_table_list.delete(pos)
         return
 
-def merger_button_onClick(meger_content):
-    #window 是 tk.Tk()
-    meger_content.content_frame.place(x=100,y=0)
 
 #一些说明
 #展开界面的方法：
