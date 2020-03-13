@@ -68,15 +68,27 @@ class merger_UI:
         if (key == ''):
             tkinter.messagebox.showwarning(title='error', message='请输入主键')
             return
-        if (self.is_integer(key) == False):
-            tkinter.messagebox.showwarning(title='error', message='主键格式应为数字')
+        if (self.is_integer(key) == True):
+            key = int(key)
+        elif(len(key)>1):
+            tkinter.messagebox.showwarning(title='error', message='输入主键不是数字时长度应小于1')
             return
-        key = int(key)
+        else:
+            key = key.lower()
+            key = ord(key) - 96
         need_add = []
+
         addble_col = self.input_addble_col_entry.get()
-        need_add_list = [int(s) for s in re.findall(r'\b\d+\b', addble_col)]
-        need_add = tuple(need_add_list)
-        print(need_add)
+
+        list1 = need_add_list = [int(s) for s in re.findall(r'\b\d+\b', addble_col)]
+        result = ''.join(re.findall(r'[A-Za-z]', addble_col))
+        for s in result:
+            num = ord(s) - 96
+            if num not in list1:
+                list1.append(num)
+        list1.sort()
+        need_add = tuple(list1)
+
         if (len(self.main_table_file) == 0):
             tkinter.messagebox.showwarning(title='error', message='主表没选')
             return
@@ -97,7 +109,7 @@ class merger_UI:
         if (len(self.sub_table_file_list) == 0):
             tkinter.messagebox.showwarning(title='hi', message='没选从表')
             return
-        print(key,self.main_table_file)
+
 
         for s in self.sub_table_file_list:
             print(s)
@@ -184,12 +196,14 @@ class merger_UI:
 
 if __name__ == '__main__':
     window = tk.Tk()
+    print("asdad")
     window.geometry('800x500')
     #navigation_frame: 左边的导航界面
     navigation_frame = tk.Frame(window,width=100,height=500,bg='green')
     navigation_frame.place(x=0,y=0)
     #获得合并界面的实例
     meger_content = merger_UI(window)
+    meger_content.content_frame.place(x=100,y=0)
     #布置导航界面的图片
     canvas = tk.Canvas(navigation_frame, bg='blue', height=500, width=100)
     canvas.place(x=0,y=0)
@@ -198,7 +212,8 @@ if __name__ == '__main__':
     #导航界面的lookup按钮和合并按钮
     lookup_button = tk.Button(navigation_frame,height=2,text='lookup\n函数生成',background='GhostWhite')
     lookup_button.place(x=20,y=130)
-    meger_button = tk.Button(navigation_frame,height=2,text='合并表格',
-                              background='GhostWhite',command = lambda arg=meger_content:merger_button_onClick(arg))
-    meger_button.place(x=20,y=260)
+   # meger_button = tk.Button(navigation_frame,height=2,text='合并表格',
+    #                          background='GhostWhite',command = lambda arg=meger_content:merger_button_onClick(arg))
+    #meger_button.place(x=20,y=260)
+    
     window.mainloop()
