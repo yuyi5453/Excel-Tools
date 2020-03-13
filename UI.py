@@ -4,8 +4,9 @@ from meger_ui import *
 from LookupPage import *
 
 def merger_button_onClick(meger_content):
-    lookup_content.lookupPage.place_forget()
+    # lookup_content.lookupPage.place_forget()
     meger_content.content_frame.place(x=100,y=0)
+
 def lookup_button_onClick(lookup_content):
     meger_content.close_meger_content()
     lookup_content.lookupPage.place(x=100,y=0)
