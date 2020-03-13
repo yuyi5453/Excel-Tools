@@ -40,16 +40,14 @@ class merger_UI:
         return namelist
 
     def call_main_begin(self,key, need_add):
-        self.begin_meger_button.place_forget()
+        self.begin_meger_button.config(state=tk.DISABLED)
         time.sleep(2)
-        label2 = tk.Label(self.content_frame, text='正在合并')
-        label2.place(x=300, y=380)
+        self.label2 = tk.Label(self.content_frame,text='Details')
+        self.label2.place(x=70, y=460)
         time.sleep(2)
-        label2.place_forget()
-        Main.begin(self.main_table_file, self.sub_table_file_list, key, need_add)
-        label2.config(text='合并完成')
+        Main.begin(self.main_table_file, self.sub_table_file_list, key, need_add,self.label2)
         time.sleep(2)
-        self.begin_meger_button.place(x=300, y=380)
+        self.begin_meger_button.config(state=tk.NORMAL)
         self.sub_table_list.config(state=tk.NORMAL)
 
     def is_digit(self,c):
@@ -64,7 +62,7 @@ class merger_UI:
 
     def begin(self):
         key = self.input_key_entry.get()
-        print(type(key), key)
+        # print(type(key), key)
         if (key == ''):
             tkinter.messagebox.showwarning(title='error', message='请输入主键')
             return
@@ -80,6 +78,7 @@ class merger_UI:
 
         addble_col = self.input_addble_col_entry.get()
 
+
         list1 = need_add_list = [int(s) for s in re.findall(r'\b\d+\b', addble_col)]
         result = ''.join(re.findall(r'[A-Za-z]', addble_col))
         for s in result:
@@ -88,6 +87,7 @@ class merger_UI:
                 list1.append(num)
         list1.sort()
         need_add = tuple(list1)
+
 
         if (len(self.main_table_file) == 0):
             tkinter.messagebox.showwarning(title='error', message='主表没选')
@@ -110,11 +110,10 @@ class merger_UI:
             tkinter.messagebox.showwarning(title='hi', message='没选从表')
             return
 
-
-        for s in self.sub_table_file_list:
-            print(s)
-        for x in need_add_list:
-            print(x)
+        # for s in self.sub_table_file_list:
+        #     print(s)
+        # for x in need_add_list:
+        #     print(x)
         thread1 = threading.Thread(target=self.call_main_begin, args=(key, need_add))
         thread1.daemon = True
         thread1.start()
@@ -178,42 +177,3 @@ class merger_UI:
         self.sub_table_list.delete(pos)
         return
 
-
-#一些说明
-#展开界面的方法：
-# 此界面不包括导航栏界面
-#初始化界面（创建窗口以及一个导航frame,一个合并界面的实例）
-# window = tk.Tk()
-# window 的size 应为800x500
-# navigation_frame = tk.Frame(frame,width=100,height=500,bg='green')
-#
-#方法绑定
-# meger_button = tk.Button(navigation_frame,height=2,text='合并表格',
-#                          background='GhostWhite',command = lambda arg=meger_content:merger_button_onClick(arg))
-#meger_button.place(x=20,y=260)
-#这样，当按下合并界面按钮时，将会打开界面
-#调用close_meger_content隐藏meger_ui界面
-
-if __name__ == '__main__':
-    window = tk.Tk()
-    print("asdad")
-    window.geometry('800x500')
-    #navigation_frame: 左边的导航界面
-    navigation_frame = tk.Frame(window,width=100,height=500,bg='green')
-    navigation_frame.place(x=0,y=0)
-    #获得合并界面的实例
-    meger_content = merger_UI(window)
-    meger_content.content_frame.place(x=100,y=0)
-    #布置导航界面的图片
-    canvas = tk.Canvas(navigation_frame, bg='blue', height=500, width=100)
-    canvas.place(x=0,y=0)
-    image_file = tk.PhotoImage(file='img\p1.jpg')
-    image = canvas.create_image(0, 0, anchor='nw', image=image_file)
-    #导航界面的lookup按钮和合并按钮
-    lookup_button = tk.Button(navigation_frame,height=2,text='lookup\n函数生成',background='GhostWhite')
-    lookup_button.place(x=20,y=130)
-   # meger_button = tk.Button(navigation_frame,height=2,text='合并表格',
-    #                          background='GhostWhite',command = lambda arg=meger_content:merger_button_onClick(arg))
-    #meger_button.place(x=20,y=260)
-    
-    window.mainloop()
