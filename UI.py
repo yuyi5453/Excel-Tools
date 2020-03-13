@@ -10,6 +10,7 @@ def merger_button_onClick(meger_content):
 def lookup_button_onClick(lookup_content):
     meger_content.close_meger_content()
     lookup_content.lookupPage.place(x=100,y=0)
+
 if __name__ == '__main__':
     window = tk.Tk()
     window.geometry('800x500')
