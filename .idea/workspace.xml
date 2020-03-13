@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="362395b8-1cc4-40fc-bde1-bc6c0de25ced" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/All_Merge.py" beforeDir="false" afterPath="$PROJECT_DIR$/All_Merge.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/.idea/Excel-Tools.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Excel-Tools.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/meger_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/meger_ui.py" afterDir="false" />
     </list>
@@ -19,6 +21,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UI.py">
           <provider selected="true" editor-type-id="text-editor">
+
             <state relative-caret-position="345">
               <caret line="30" column="95" lean-forward="true" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="95" />
               <folding>
@@ -111,9 +114,34 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="92">
               <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+
               <folding>
                 <element signature="e#17#37#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/meger_ui.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-324">
+              <caret line="89" column="31" lean-forward="true" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+              <folding>
+                <element signature="e#15#35#0" expanded="true" />
+                <element signature="e#1441#1890#0" />
+                <element signature="e#1926#1954#0" />
+                <element signature="e#1995#2101#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/Scratchers2/t.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="3" selection-start-line="3" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -160,15 +188,19 @@
         <option value="$PROJECT_DIR$/Main1.py" />
         <option value="$PROJECT_DIR$/lookup.py" />
         <option value="$PROJECT_DIR$/LookupPage.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/Scratchers2/t.py" />
         <option value="$PROJECT_DIR$/UI.py" />
+
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Main.py" />
         <option value="$PROJECT_DIR$/All_Merge.py" />
+
         <option value="$PROJECT_DIR$/meger_ui.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+
     <option name="x" value="106" />
     <option name="y" value="-30" />
     <option name="width" value="1440" />
@@ -180,6 +212,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -187,16 +220,30 @@
               <item name="Excel-Tools" type="b2602c69:ProjectViewProjectNode" />
               <item name="Excel-Tools" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Excel-Tools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
+            <path>
+              <item name="Excel-Tools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+            </path>
+            <path>
+              <item name="Excel-Tools" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
+              <item name="Scratchers2" type="1e004dc1:ScratchProjectViewPane$MyRootNode$1$1" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -255,27 +302,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LookupPage.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Excel-Tools" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="E:\Excel-Tools\Main1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -347,13 +373,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="t" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Excel-Tools" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches/Scratchers2" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/Scratchers2/t.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.LookupPage" />
         <item itemvalue="Python.meger_ui" />
+        <item itemvalue="Python.t" />
+        <item itemvalue="Python.LookupPage" />
         <item itemvalue="Python.lookup" />
         <item itemvalue="Python.All_fun" />
-        <item itemvalue="Python.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -371,16 +418,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
+
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14266843" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14217633" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+
       <window_info anchor="bottom" id="Run" order="2" weight="0.2266289" />
       <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.38243628" />
+
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -392,6 +443,25 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14217633" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2266289" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.38243628" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5006605" side_tool="true" weight="0.32577905" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3286119" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -428,6 +498,7 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/dsj" />
+
     <entry file="file://$PROJECT_DIR$/../新建文件夹/Lib/site-packages/xlwings/_xlwindows.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14030">
@@ -445,6 +516,7 @@
     <entry file="file://$PROJECT_DIR$/001.py" />
     <entry file="file://$PROJECT_DIR$/Main1.py" />
     <entry file="file://$PROJECT_DIR$/../新建文件夹/Lib/threading.py">
+
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
           <caret line="864" selection-start-line="864" selection-end-line="864" />
@@ -507,57 +579,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LookupPage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="9" column="61" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
-          <folding>
-            <element signature="e#17#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Map_Write.py">
+
+    <entry file="file://$PROJECT_DIR$/../新建文件夹/Lib/threading.py" />
+    <entry file="file://$PROJECT_DIR$/../新建文件夹/Lib/tkinter/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/Main.py" />
+    <entry file="file://$PROJECT_DIR$/lookup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Member.py">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="608">
+          <caret line="279" column="12" selection-start-line="279" selection-start-column="12" selection-end-line="279" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="230">
-            <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Pre_Init.py">
+    <entry file="file://$PROJECT_DIR$/../AppData/Local/Programs/Python/Python38-32/Lib/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        <state relative-caret-position="355">
+          <caret line="1882" selection-start-line="1882" selection-end-line="1882" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UI.py">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/Scratchers2/t.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="30" column="95" lean-forward="true" selection-start-line="30" selection-start-column="95" selection-end-line="30" selection-end-column="95" />
+        <state relative-caret-position="75">
+          <caret line="3" selection-start-line="3" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LookupPage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2240">
+          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meger_ui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-324">
+          <caret line="89" column="31" lean-forward="true" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+
           <folding>
-            <element signature="e#17#37#0" expanded="true" />
+            <element signature="e#15#35#0" expanded="true" />
+            <element signature="e#1441#1890#0" />
+            <element signature="e#1926#1954#0" />
+            <element signature="e#1995#2101#0" />
           </folding>
         </state>
       </provider>
     </entry>
+
     <entry file="file://$PROJECT_DIR$/Main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
