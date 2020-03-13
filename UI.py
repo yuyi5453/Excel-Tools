@@ -4,7 +4,7 @@ from tkinter import filedialog
 import tkinter.messagebox
 import threading
 import time
-import Main1
+import Main
 import sys
 import re
 from Enable_write import *
@@ -45,7 +45,7 @@ def select_sub_table():
 
 
 
-def call_main_begin():
+def call_main_begin(key,need_add):
 
     global main_table_file, sub_table_file_list, window,begin_meger_button
     begin_meger_button.place_forget()
@@ -55,7 +55,7 @@ def call_main_begin():
     time.sleep(2)
     label2.place_forget()
 
-    Main1.begin(main_table_file, sub_table_file_list,key,need_add)
+    Main.begin(main_table_file,sub_table_file_list,key,need_add)
     label2.config(text='合并完成')
     time.sleep(2)
     begin_meger_button.place(x=300, y=380)
@@ -195,3 +195,4 @@ sub_table_file_list = ''
 
 window.protocol('WM_DELETE_WINDOW',close_win)
 tk.mainloop()
+
